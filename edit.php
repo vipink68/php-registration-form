@@ -56,7 +56,8 @@
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
 
-    <div class='mb-3 d-grid gap-2'>
+    <div class='mb-3'>
+      <a href="view_records.php" class="btn btn-secondary">Back to list</a>
       <button type="submit" name="submit" class="btn btn-success">Save Changes</button>
   </div>
   </div>
