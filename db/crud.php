@@ -5,17 +5,16 @@
             $this->db = $conn;
         } 
 
-        public function insertuser($fname,$lname,$dob,$contact,$email,$pswd,$speciality){
+        public function insertuser($fname,$lname,$dob,$contact,$email,$speciality){
             try {
-                $sql = "INSERT INTO registered_user (firstname,lastname,dob,phonenumber,email,user_password,speciality_id) 
-                VALUES (:fname, :lname, :dob, :contact, :email, :pswd, :speciality)";
+                $sql = "INSERT INTO registered_user (firstname,lastname,dob,phonenumber,email,speciality_id) 
+                VALUES (:fname, :lname, :dob, :contact, :email, :speciality)";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':fname',$fname);
                 $stmt->bindparam(':lname',$lname);
                 $stmt->bindparam(':dob',$dob);
                 $stmt->bindparam(':contact',$contact);
                 $stmt->bindparam(':email',$email);
-                $stmt->bindparam(':pswd',$pswd);
                 $stmt->bindparam(':speciality',$speciality);
 
                 $stmt->execute();

@@ -2,6 +2,7 @@
     $title='View Records';
     
     require_once 'include/header.php';
+    include_once 'include/auth_check.php';
     require_once 'db/conn.php';
 
     $results = $crud->getusers();

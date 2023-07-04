@@ -1,6 +1,7 @@
 <?php
     $title='Success';
     require_once 'include/header.php';
+    include_once 'include/auth_check.php';
     require_once 'db/conn.php';
     
     if(isset($_POST['submit'])){

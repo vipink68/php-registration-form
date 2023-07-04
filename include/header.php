@@ -1,3 +1,5 @@
+<?php
+include_once 'include/session.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +11,9 @@
     <title><?php echo $title; ?></title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-secondary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">PHP</a>
+    <a class="navbar-brand" href="index.php">PHP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,8 +26,18 @@
           <a class="nav-link" href="view_records.php">View Users</a>
         </li>
       </ul>
+      <ul class="navbar-nav ms-auto">
+        <?php if(!isset($_SESSION['id'])){ ?>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+          </li>
+          <?php } else{ ?>
+            <a class="nav-link" href="#">Hello <?php echo $_SESSION['username'] ?>!</a>
+            <a class="nav-link active" aria-current="page" href="logout.php">Logout</a>
+          <?php } ?>
+        </ul>
     </div>
-  </div>
+    </div>
 </nav>
 <div class = 'container col-8 mx-auto'>
     
