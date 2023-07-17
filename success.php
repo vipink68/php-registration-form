@@ -1,7 +1,6 @@
 <?php
     $title='Success';
     require_once 'include/header.php';
-    include_once 'include/auth_check.php';
     require_once 'db/conn.php';
     
     if(isset($_POST['submit'])){
@@ -12,9 +11,16 @@
       $speciality = $_POST['speciality'];
       $contact = $_POST['phnum'];
       $email = $_POST['email'];
-      $pswd = $_POST['password'];
+    
 
-      $issuccess = $crud->insertuser($fname,$lname,$dob,$contact,$email,$pswd,$speciality);
+      $orig_file = $_FILES["avatar"]["tmp_name"];
+      $ext=pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+      $target_dir = 'uploads/';
+      $destination = "$target_dir$contact.$ext";
+      move_uploaded_file($orig_file, $destination);
+
+      echo '<br>';
+      $issuccess = $crud->insertuser($fname,$lname,$dob,$contact,$email,$speciality,$destination);
       if($issuccess){
         include "include/successmsg.php";
       }else{
@@ -42,6 +48,9 @@
 </div>
  
 -->
+
+<img class="rounded-circle" src="<?php echo $destination; ?>" style="width: 20%; height: 20%;" alt="avatar">
+
 <div class="card" style="width: 18rem; margin: auto;">
   <div class="card-body">
     <h5 class="card-title"><?php echo $_POST['fname'].' '.$_POST['lname'];?></h5>

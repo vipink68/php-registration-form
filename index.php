@@ -6,9 +6,9 @@
     $result = $crud->getspecialities();
 
 ?>
-
+<br>
 <h1 class='text-center'>Registration</h1>
-<form method='post' action="success.php">
+<form enctype='multipart/form-data' method='post' action="success.php">
   <div class="mb-3 gx-5">
     <label for="fname" class="form-label">First Name</label>
     <input  required type="text" class="form-control" id="fname" name="fname">
@@ -41,8 +41,12 @@
     <input required type="email" class="form-control" id="email" name='email' aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
+  <div class="custom-file">
+    <input type="file" accept="image/*" class="form-control" id="avatar" name='avatar'>
+    <div id="imagehelp" class="form-text">Image upload is Optional</div>
+  </div>
 
-
+<br>
     <div class='mb-3 d-grid gap-2'>
       <button type="submit" name="submit" class="btn btn-primary">Submit</button>
   </div>
