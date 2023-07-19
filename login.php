@@ -41,5 +41,6 @@
         <a href="#"> Forgot Password </a>
             
     </form><br/><br/><br/><br/>
+</div>
 
 <?php include_once 'include/footer.php'?>

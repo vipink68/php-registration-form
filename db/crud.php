@@ -27,8 +27,29 @@
             }
         }
 
+        public function insertadmin($adminname, $adminemail, $adminpassword){
+            try {
+                
+                $sql = "INSERT INTO admins (admin_name, admin_email, admin_password) VALUES (:adminname, :adminemail, :adminpassword)";
+                $new_password = md5($adminpassword.$adminname);
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':adminname',$adminname);
+                $stmt->bindparam(':adminemail',$adminemail);
+                $stmt->bindparam(':adminpassword',$new_password);
+                $stmt->execute();
+                return true;
+    
+            } catch(PDOException $e) {
+                echo "Error: ".$e->getMessage();
+                return false;
+            }
+        }
+
+
         public function edituser($id,$fname,$lname,$dob,$contact,$email,$speciality){
             try {
+                $sql = "UPDATE registered_user SET firstname = :fname, lastname = :lname, dob = :dob, phonenumber = :contact, email = :email, speciality_id = :speciality WHERE user_id = :id";
+
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':id',$id);
                 $stmt->bindparam(':fname',$fname);

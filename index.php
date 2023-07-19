@@ -2,7 +2,8 @@
     $title='Index';
     require_once 'include/header.php';
     require_once 'db/conn.php';
-
+    
+    // result variable is used in the specialities section in form
     $result = $crud->getspecialities();
 
 ?>

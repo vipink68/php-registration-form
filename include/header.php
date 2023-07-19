@@ -25,6 +25,9 @@ include_once 'include/session.php' ?>
         <li class="nav-item">
           <a class="nav-link" href="view_records.php">View Users</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin_registration.php">Admin</a>
+        </li>
       </ul>
       <ul class="navbar-nav ms-auto">
         <?php if(!isset($_SESSION['id'])){ ?>
